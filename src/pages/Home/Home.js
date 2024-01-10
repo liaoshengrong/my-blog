@@ -6,6 +6,7 @@ function Home() {
   const go = (path) => {
     navigate(path);
   };
+  console.log("build-develop", "asdfsfasdf");
   return (
     <div>
       <div onClick={() => go("/home")}>首页</div>

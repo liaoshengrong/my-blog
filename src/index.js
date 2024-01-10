@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import * as ReactDOMClient from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 
 import App from "./App";
 
@@ -9,8 +9,8 @@ const root = ReactDOMClient.createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <BrowserRouter basename="/my-blog">
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>
 );
