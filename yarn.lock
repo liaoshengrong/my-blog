@@ -5041,6 +5041,11 @@ he@^1.2.0:
   resolved "https://artifactory.pruconnect.net/artifactory/api/npm/npm-pca-neo/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha1-hK5l+n6vsWX922FWauFLrwVmTw8=
 
+highlight.js@^11.9.0:
+  version "11.9.0"
+  resolved "https://artifactory.pruconnect.net/artifactory/api/npm/npm-pca-neo/highlight.js/-/highlight.js-11.9.0.tgz#04ab9ee43b52a41a047432c8103e2158a1b8b5b0"
+  integrity sha1-BKue5DtSpBoEdDLIED4hWKG4tbA=
+
 hoopy@^0.1.4:
   version "0.1.4"
   resolved "https://artifactory.pruconnect.net/artifactory/api/npm/npm-pca-neo/hoopy/-/hoopy-0.1.4.tgz#609207d661100033a9a9402ad3dea677381c1b1d"
