@@ -2,6 +2,7 @@ import Blog from "../pages/Blog/Blog";
 import BlogList from "../pages/BlogList/BlogList";
 import Home from "../pages/Home/Home";
 import BlogEdit from "../pages/BlogEdit/BlogEdit";
+import React from "react";
 
 const config = [
   {
