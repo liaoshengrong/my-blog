@@ -6,7 +6,8 @@ import hot_0 from "./images/hot-0.png";
 import hot_1 from "./images/hot-1.png";
 import hot_2 from "./images/hot-2.png";
 import hot_3 from "./images/hot-3.png";
-import "./home.less";
+// import "./home.less";
+// import './'
 const imgList = [hot_0, hot_1, hot_2, hot_3];
 function Home() {
   const navigate = useNavigate();
