@@ -1,4 +1,4 @@
-export default {
+const config = {
   // other settings
   // ...
   resolve: {
@@ -20,6 +20,12 @@ export default {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.less$/,
+        use: ["style-loader", "css-loader", "less-loader"],
+      },
     ],
   },
 };
+
+export default config;

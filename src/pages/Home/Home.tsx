@@ -1,13 +1,16 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "./images/logo.png";
 import hot_0 from "./images/hot-0.png";
 import hot_1 from "./images/hot-1.png";
 import hot_2 from "./images/hot-2.png";
 import hot_3 from "./images/hot-3.png";
-
+import "./home.less";
+const imgList = [hot_0, hot_1, hot_2, hot_3];
 function Home() {
   const navigate = useNavigate();
+  const [active, setActive] = useState(0);
   const go = (path) => {
     navigate(path);
   };
@@ -17,17 +20,16 @@ function Home() {
       .querySelector(".custom_menu-btn")
       .classList.toggle("menu_btn-style");
   };
+  const mapList = Array(4).fill("");
   return (
-    <div>
-      {/* <div onClick={() => go("/home")}>首页</div>
-      <div onClick={() => go("/blog-list")}>Blog list</div> */}
+    <div className="home_container">
       <div className="hero_area">
         <header className="header_section">
           <div className="container-fluid">
             <nav className="navbar navbar-expand-lg custom_nav-container">
               <a className="navbar-brand" href="index.html">
                 <img src={logo} alt="" />
-                <span>Goid</span>
+                <span>BLOG</span>
               </a>
 
               <div className="navbar-collapse" id="">
@@ -40,7 +42,9 @@ function Home() {
                 </div>
                 <div id="myNav" className="overlay">
                   <div className="overlay-content">
-                    <a href="">主页</a>
+                    <a href="" onClick={() => go("/home")}>
+                      主页
+                    </a>
                     <a href="">暂未开放</a>
                     <a href="">暂未开放</a>
                     <a href="">暂未开放</a>
@@ -57,45 +61,26 @@ function Home() {
           <div className="container-fluid">
             <div className="row">
               <div className="col-lg-3 col-md-4 offset-md-1">
-                <div
-                  id="carouselExampleIndicators"
-                  className="carousel slide "
-                  data-ride="carousel"
-                >
+                <div id="carouselExampleIndicators" className="carousel slide">
                   <ol className="carousel-indicators">
-                    {Array(4)
-                      .fill("")
-                      .map((_, index) => (
-                        <li
-                          data-target="#carouselExampleIndicators"
-                          data-slide-to={index}
-                          className={index === 0 ? "active" : ""}
-                        >
-                          0{index + 1}
-                        </li>
-                      ))}
+                    {mapList.map((_, index) => (
+                      <li className={active === index ? "li_active" : ""}>
+                        0{index + 1}
+                      </li>
+                    ))}
                   </ol>
                   <div className="carousel-inner">
-                    <div className="carousel-item active">
-                      <div className="img-box b-1">
-                        <img src={hot_0} alt="" />
+                    {mapList.map((_, index) => (
+                      <div
+                        className={`carousel-item ${
+                          active === index ? "item_active" : ""
+                        }`}
+                      >
+                        <div className={`img-box ${"b-" + (index + 1)}`}>
+                          <img src={imgList[index]} alt="" />
+                        </div>
                       </div>
-                    </div>
-                    <div className="carousel-item">
-                      <div className="img-box b-2">
-                        <img src={hot_1} alt="" />
-                      </div>
-                    </div>
-                    <div className="carousel-item">
-                      <div className="img-box b-3">
-                        <img src={hot_2} alt="" />
-                      </div>
-                    </div>
-                    <div className="carousel-item">
-                      <div className="img-box b-4">
-                        <img src={hot_3} alt="" />
-                      </div>
-                    </div>
+                    ))}
                   </div>
                   <div className="carousel_btn-box">
                     <a
