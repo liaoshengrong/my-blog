@@ -4,6 +4,7 @@ import hljs from "highlight.js";
 
 export const mdParser = new MarkdownIt({
   typographer: true,
+  html: true,
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {

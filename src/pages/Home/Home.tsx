@@ -1,28 +1,67 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "./images/logo.png";
 import hot_0 from "./images/hot-0.png";
 import hot_1 from "./images/hot-1.png";
 import hot_2 from "./images/hot-2.png";
 import hot_3 from "./images/hot-3.png";
+import hot_4 from "./images/hot-4.png";
 import "./home.less";
+import useMyNav from "../../router/nav";
 // import styles from "./home.module.less";
 // import './'
-const imgList = [hot_0, hot_1, hot_2, hot_3];
+const imgList = [hot_0, hot_1, hot_2, hot_3, hot_4];
 function Home() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const { go } = useMyNav();
   const [active, setActive] = useState(0);
-  const go = (path) => {
-    navigate(path);
-  };
+  const [notAct, setNotAct] = useState(0);
+  const [showMenu, setShowMenu] = useState(false);
+  const timer = useRef(null);
+  const actRef = useRef(null);
   const openNav = () => {
-    document.getElementById("myNav").classList.toggle("menu_width");
+    console.log("openNav");
+    setShowMenu(!showMenu);
+    // document.getElementById("myNav").classList.toggle("menu_width");
     document
       .querySelector(".custom_menu-btn")
       .classList.toggle("menu_btn-style");
   };
-  const mapList = Array(4).fill("");
+  const onNext = () => {
+    setNotAct(actRef.current);
+    if (actRef.current < 4) {
+      actRef.current = actRef.current + 1;
+    } else {
+      actRef.current = 0;
+    }
+    setActive(actRef.current);
+  };
+  // const onPrev = () => {
+  //   setNotAct(active);
+
+  //   if (active > 0) {
+  //     setActive(active - 1);
+  //   } else {
+  //     setActive(3);
+  //   }
+  // };
+  useEffect(() => {
+    actRef.current = 0;
+
+    if (timer.current) {
+      clearInterval(timer?.current);
+    }
+    timer.current = setInterval(() => {
+      onNext();
+    }, 2000);
+    return () => {
+      clearInterval(timer?.current);
+    };
+  }, []);
+  const mapList = Array(5).fill("");
+  console.log(active, "active");
+
   return (
     <div className="home_container">
       <div className="hero_area">
@@ -42,15 +81,17 @@ function Home() {
                     <span className="s-3"> </span>
                   </button>
                 </div>
-                <div id="myNav" className="overlay">
-                  <div className="overlay-content">
-                    <a href="" onClick={() => go("/home")}>
-                      主页
-                    </a>
-                    <a href="">暂未开放</a>
-                    <a href="">暂未开放</a>
-                    <a href="">暂未开放</a>
-                  </div>
+                <div
+                  className={`${
+                    showMenu
+                      ? "showMenu home_container_menu"
+                      : "home_container_menu"
+                  }`}
+                >
+                  <a onClick={() => go("/home")}>主页</a>
+                  <a onClick={() => go("/blog-list")}>博客列表</a>
+                  <a>技能标签</a>
+                  <a>简介</a>
                 </div>
               </div>
             </nav>
@@ -79,28 +120,24 @@ function Home() {
                       <div
                         key={index}
                         className={`carousel-item ${
-                          active === index ? "item_active" : ""
+                          active === index
+                            ? "item_active"
+                            : notAct === index
+                            ? "item_not_active"
+                            : ""
                         }`}
                       >
-                        <div className={`img-box ${"b-" + (index + 1)}`}>
+                        <div className={`img-box`}>
                           <img src={imgList[index]} alt="" />
                         </div>
                       </div>
                     ))}
                   </div>
                   <div className="carousel_btn-box">
-                    <a
-                      className="carousel-control-prev"
-                      role="button"
-                      data-slide="prev"
-                    >
+                    <a className="carousel-control-prev" onClick={onNext}>
                       <span className="sr-only">Previous</span>
                     </a>
-                    <a
-                      className="carousel-control-next"
-                      role="button"
-                      data-slide="next"
-                    >
+                    <a className="carousel-control-next" onClick={onNext}>
                       <span className="sr-only">Next</span>
                     </a>
                   </div>

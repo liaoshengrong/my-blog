@@ -4,7 +4,7 @@
 - Cookie 默认是不可以跨域的
 - 并不是从不同域名的网站里拿 Cookie
 
-![来自其他博主](/img/cookie.png)
+<img src="/my-blog/img/cookie.png" alt="来自其他博主" width="700" height="500">
 
 - 谷歌浏览器新版本 Chrome 80 将 Cookie 的 SameSite 属性默认值由 None 变为 Lax。
 
