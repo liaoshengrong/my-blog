@@ -25,7 +25,6 @@ function Home() {
   const mapList = Array(4).fill("");
   return (
     <div className="home_container">
-      <div className="fuckfuck">怎么回事呀</div>
       <div className="hero_area">
         <header className="header_section">
           <div className="container-fluid">
