@@ -15,5 +15,6 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "include": ["src", "images.d.ts"]
+  "include": ["src", "images.d.ts", "react-app-env.d.ts"],
+  "extends": "./path.tsconfig.json"
 }

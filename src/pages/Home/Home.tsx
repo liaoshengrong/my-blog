@@ -6,7 +6,8 @@ import hot_0 from "./images/hot-0.png";
 import hot_1 from "./images/hot-1.png";
 import hot_2 from "./images/hot-2.png";
 import hot_3 from "./images/hot-3.png";
-// import "./home.less";
+import "./home.less";
+// import styles from "./home.module.less";
 // import './'
 const imgList = [hot_0, hot_1, hot_2, hot_3];
 function Home() {
@@ -24,6 +25,7 @@ function Home() {
   const mapList = Array(4).fill("");
   return (
     <div className="home_container">
+      <div className="fuckfuck">怎么回事呀</div>
       <div className="hero_area">
         <header className="header_section">
           <div className="container-fluid">
@@ -65,7 +67,10 @@ function Home() {
                 <div id="carouselExampleIndicators" className="carousel slide">
                   <ol className="carousel-indicators">
                     {mapList.map((_, index) => (
-                      <li className={active === index ? "li_active" : ""}>
+                      <li
+                        key={index}
+                        className={active === index ? "li_active" : ""}
+                      >
                         0{index + 1}
                       </li>
                     ))}
@@ -73,6 +78,7 @@ function Home() {
                   <div className="carousel-inner">
                     {mapList.map((_, index) => (
                       <div
+                        key={index}
                         className={`carousel-item ${
                           active === index ? "item_active" : ""
                         }`}
