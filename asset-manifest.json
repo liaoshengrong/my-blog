@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/my-blog/static/css/main.254aa008.css",
-    "main.js": "/my-blog/static/js/main.45b9ae82.js",
+    "main.css": "/my-blog/static/css/main.050b8747.css",
+    "main.js": "/my-blog/static/js/main.3ff416c5.js",
+    "static/media/list-bg.jpg": "/my-blog/static/media/list-bg.ac013b95bdc8c202fd42.jpg",
     "static/media/hot-0.png": "/my-blog/static/media/hot-0.fb59dfc6bb1bac6b0ad0.png",
     "static/media/hot-1.png": "/my-blog/static/media/hot-1.71a5682701592bc8eaf9.png",
     "static/media/AmericanTypewriterBQ-Bold.otf": "/my-blog/static/media/AmericanTypewriterBQ-Bold.6ac32843c1d05c994df3.otf",
     "static/media/hot-3.png": "/my-blog/static/media/hot-3.445fd32f4550de0b12c6.png",
     "static/media/hot-4.png": "/my-blog/static/media/hot-4.af108db04a54d784da9b.png",
     "index.html": "/my-blog/index.html",
-    "main.254aa008.css.map": "/my-blog/static/css/main.254aa008.css.map",
-    "main.45b9ae82.js.map": "/my-blog/static/js/main.45b9ae82.js.map"
+    "main.050b8747.css.map": "/my-blog/static/css/main.050b8747.css.map",
+    "main.3ff416c5.js.map": "/my-blog/static/js/main.3ff416c5.js.map"
   },
   "entrypoints": [
-    "static/css/main.254aa008.css",
-    "static/js/main.45b9ae82.js"
+    "static/css/main.050b8747.css",
+    "static/js/main.3ff416c5.js"
   ]
 }
