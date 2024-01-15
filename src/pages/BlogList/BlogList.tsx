@@ -7,17 +7,23 @@ import MDRender from "../components/MdRender";
 function BlogList() {
   const { go } = useMyNav();
   const [dList, setDList] = useState([]);
-  const [showPreview, setShowPreview] = useState(false);
   const [previewItem, setPreviewItem] = useState<FilesProps>();
   console.log(list, dList, "listlist");
 
   const selectTag = (type) => {
+    const newList = [];
+
     if (type === "all") {
-      setDList(list.map((v) => v.list));
+      list.forEach((item) => {
+        item.list.forEach((v) => {
+          newList.push(v);
+        });
+      });
+
+      setDList(newList);
       return;
     }
 
-    const newList = [];
     list.forEach((item) => {
       if (item.name === type) {
         item.list.forEach((v) => {
@@ -31,11 +37,9 @@ function BlogList() {
     e.stopPropagation();
     console.log(item, "onPreview");
     if (item.name === previewItem?.name) {
-      setShowPreview(false);
       setPreviewItem(null);
       return;
     }
-    setShowPreview(true);
     setPreviewItem(item);
   };
   useEffect(() => {
@@ -45,6 +49,7 @@ function BlogList() {
         defaultlist.push(v);
       });
     });
+    setPreviewItem(defaultlist[0]);
     setDList(defaultlist);
   }, []);
   return (
@@ -59,7 +64,8 @@ function BlogList() {
           <div className="leftList">
             <div className="tagTitle">文章标签</div>
             <div className="tabAll" onClick={() => selectTag("all")}>
-              全部
+              <span>全部</span>
+              <span>{`(${list.length})`}</span>
             </div>
             {list.map((item, index) => (
               <div
@@ -67,18 +73,18 @@ function BlogList() {
                 key={index}
                 onClick={() => selectTag(item?.name)}
               >
-                {`${item?.name}(${item.list.length})`}
+                <span>{item?.name}</span>
+                <span>{`(${item.list.length})`}</span>
               </div>
             ))}
           </div>
           <div className="listContainer">
             {dList.map((item, index) => (
               <div
-                // className="listItem"
                 className={`listItem ${
                   item.name === previewItem?.name ? "listItemActive" : ""
                 }`}
-                onClick={() => go("/blog?path=" + item.path)}
+                onClick={(e) => onPreview(e, item)}
                 key={index}
               >
                 <p className="title">{item?.name}</p>
@@ -86,7 +92,12 @@ function BlogList() {
                 <div className="bottomBox">
                   <p className="date">{item?.date}</p>
                   <div className="btnBox">
-                    <p className="read">阅读全文</p>
+                    <p
+                      className="read"
+                      onClick={() => go("/blog?path=" + item.path)}
+                    >
+                      阅读全文
+                    </p>
                     <p className="preview" onClick={(e) => onPreview(e, item)}>
                       预览
                     </p>
@@ -95,11 +106,9 @@ function BlogList() {
               </div>
             ))}
           </div>
-          {showPreview && (
-            <div className="previewContainer">
-              <MDRender item={previewItem} />
-            </div>
-          )}
+          <div className="previewContainer">
+            {previewItem && <MDRender item={previewItem} />}
+          </div>
         </div>
       </div>
     </div>

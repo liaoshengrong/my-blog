@@ -61,6 +61,8 @@
         .tabAll {
           padding: 0.4rem 1.2rem;
           border-bottom: 1px dashed #9c9999;
+          display: flex;
+          justify-content: space-between;
           &:hover {
             background-color: #ffffff;
           }
@@ -69,6 +71,23 @@
       .listContainer {
         width: 36%;
         padding-top: 0.5rem;
+        height: 100%;
+        overflow-y: auto;
+        padding-right: 0.4rem;
+        &::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #999;
+          border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: #f1f1f1;
+          border-radius: 4px;
+        }
 
         p {
           margin-bottom: 0;
@@ -78,16 +97,16 @@
           border-radius: 10px;
           margin-bottom: 1rem;
           border: 1px solid #9c9999;
-          //   box-shadow: 0 0 3px #b6b3b3;
 
           cursor: pointer;
 
           .title {
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #010101;
           }
           .desc {
+            margin-top: 0.4rem;
             font-size: 1rem;
             color: #5d5d5d;
           }
@@ -125,14 +144,56 @@
         }
       }
       .previewContainer {
-        // width: 42%;
         flex: 1;
-        margin-left: 0.8rem;
+        margin-left: 0.4rem;
         height: 100%;
-        overflow-y: scroll;
+        overflow-y: auto;
         border: 1px dashed #ffffff;
         border-radius: 10px;
         padding: 0.5rem;
+        &::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #999;
+          border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: #f1f1f1;
+          border-radius: 4px;
+        }
+        .hljs {
+          &::-webkit-scrollbar {
+            height: 6px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #999;
+            border-radius: 4px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+            border-radius: 4px;
+          }
+        }
+        /* 兼容 Edge 浏览器 */
+        // &::-ms-scrollbar {
+        //   width: 8px;
+        //   border-radius: 4px;
+        // }
+
+        // &::-ms-scrollbar-thumb {
+        //   background-color: #999;
+        // }
+
+        // &::-ms-scrollbar-track {
+        //   background-color: #f1f1f1;
+        // }
+
         h1 {
           font-size: 1.5rem;
         }

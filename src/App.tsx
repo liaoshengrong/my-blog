@@ -5,7 +5,6 @@ import "react-markdown-editor-lite/lib/index.css";
 import "highlight.js/styles/vs2015.css";
 import React, { useEffect, useRef } from "react";
 function App() {
-  console.log(document.visibilityState, "document.visibilityState----");
   const timer = useRef(null);
   useEffect(() => {
     document.onvisibilitychange = () => {
