@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MarkdownIt from "markdown-it";
 import hljs from "highlight.js";
 
@@ -23,9 +23,26 @@ export const mdParser = new MarkdownIt({
     );
   },
 });
+interface IProps {
+  content?: any;
+  item?: any;
+}
+function MDRender({ item }: IProps) {
+  const [markdownContent, setMarkdownContent] = useState("");
+  console.log(item, "itemitem");
 
-function MDRender({ content }) {
-  return <div dangerouslySetInnerHTML={{ __html: mdParser.render(content) }} />;
+  useEffect(() => {
+    if (item) {
+      fetch(item.path)
+        .then((response) => response.text())
+        .then((data) => setMarkdownContent(data));
+    }
+  }, [item]);
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: mdParser.render(markdownContent) }}
+    />
+  );
 }
 
 export default MDRender;

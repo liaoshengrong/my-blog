@@ -7,7 +7,10 @@ import hot_1 from "./images/hot-1.png";
 import hot_2 from "./images/hot-2.png";
 import hot_3 from "./images/hot-3.png";
 import hot_4 from "./images/hot-4.png";
-import "./home.less";
+import "./css/responsive.css";
+import "./css/style.css";
+import "./css/bootstrap.css";
+import "./Home.less";
 import useMyNav from "../../router/nav";
 // import styles from "./home.module.less";
 // import './'
@@ -28,7 +31,11 @@ function Home() {
       .querySelector(".custom_menu-btn")
       .classList.toggle("menu_btn-style");
   };
-  const onNext = () => {
+  const onNext = (auto?: boolean) => {
+    if (!auto) {
+      clearInterval(timer?.current);
+    }
+
     setNotAct(actRef.current);
     if (actRef.current < 4) {
       actRef.current = actRef.current + 1;
@@ -53,14 +60,13 @@ function Home() {
       clearInterval(timer?.current);
     }
     timer.current = setInterval(() => {
-      onNext();
+      onNext(true);
     }, 2000);
     return () => {
       clearInterval(timer?.current);
     };
   }, []);
   const mapList = Array(5).fill("");
-  console.log(active, "active");
 
   return (
     <div className="home_container">
@@ -128,16 +134,26 @@ function Home() {
                         }`}
                       >
                         <div className={`img-box`}>
-                          <img src={imgList[index]} alt="" />
+                          <img
+                            style={{ maxWidth: "269px" }}
+                            src={imgList[index]}
+                            alt=""
+                          />
                         </div>
                       </div>
                     ))}
                   </div>
                   <div className="carousel_btn-box">
-                    <a className="carousel-control-prev" onClick={onNext}>
+                    <a
+                      className="carousel-control-prev"
+                      onClick={() => onNext()}
+                    >
                       <span className="sr-only">Previous</span>
                     </a>
-                    <a className="carousel-control-next" onClick={onNext}>
+                    <a
+                      className="carousel-control-next"
+                      onClick={() => onNext()}
+                    >
                       <span className="sr-only">Next</span>
                     </a>
                   </div>
