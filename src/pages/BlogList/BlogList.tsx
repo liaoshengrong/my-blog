@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import useMyNav from "../../router/nav";
 import list, { FilesProps } from "../../config/list";
 import Header from "../components/Header/Header";
@@ -8,8 +8,7 @@ function BlogList() {
   const { go } = useMyNav();
   const [dList, setDList] = useState([]);
   const [previewItem, setPreviewItem] = useState<FilesProps>();
-  console.log(list, dList, "listlist");
-
+  const cWidth = useMemo(() => window.screen.width, []);
   const selectTag = (type) => {
     const newList = [];
 
@@ -35,7 +34,6 @@ function BlogList() {
   };
   const onPreview = (e, item) => {
     e.stopPropagation();
-    console.log(item, "onPreview");
     if (item.name === previewItem?.name) {
       setPreviewItem(null);
       return;
@@ -52,8 +50,9 @@ function BlogList() {
     setPreviewItem(defaultlist[0]);
     setDList(defaultlist);
   }, []);
+
   return (
-    <div className="blogList">
+    <div className="blogList" style={{ minWidth: cWidth * 0.5 }}>
       <div className="topBg"></div>
       <Header />
       <div className="create">

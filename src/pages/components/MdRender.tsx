@@ -29,8 +29,6 @@ interface IProps {
 }
 function MDRender({ item }: IProps) {
   const [markdownContent, setMarkdownContent] = useState("");
-  console.log(item, "itemitem");
-
   useEffect(() => {
     if (item) {
       fetch(item.path)
