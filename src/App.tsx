@@ -4,9 +4,10 @@ import routers from "./router";
 import "react-markdown-editor-lite/lib/index.css";
 import "highlight.js/styles/vs2015.css";
 import React, { useEffect, useRef } from "react";
+import { preMDFetch, preMountImg } from "./utils";
 function App() {
   const timer = useRef(null);
-  useEffect(() => {
+  const addEvent = () => {
     document.onvisibilitychange = () => {
       clearTimeout(timer.current);
       if (document.visibilityState === "hidden") {
@@ -19,6 +20,11 @@ function App() {
         }, 2000);
       }
     };
+  };
+  useEffect(() => {
+    addEvent();
+    preMDFetch();
+    preMountImg();
   }, []);
   return (
     <div className="root">
