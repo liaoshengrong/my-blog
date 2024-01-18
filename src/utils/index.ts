@@ -8,7 +8,7 @@ export const preMDFetch = () => {
   });
 }
 const mountImg = (url) => {
-  const img = document.createElement('img')
+  const img = new Image()
   img.src = url
   img.onload = () => {
     console.log('onload')
