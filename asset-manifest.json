@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "/my-blog/static/css/main.2922cf28.css",
-    "main.js": "/my-blog/static/js/main.50e6028d.js",
+    "main.css": "/my-blog/static/css/main.5aa12656.css",
+    "main.js": "/my-blog/static/js/main.58eee1b3.js",
+    "static/media/bg-2.jpg": "/my-blog/static/media/bg-2.f12e45c8062d808f28b7.jpg",
     "static/media/list-bg.jpg": "/my-blog/static/media/list-bg.ac013b95bdc8c202fd42.jpg",
-    "static/media/hot-0.png": "/my-blog/static/media/hot-0.fb59dfc6bb1bac6b0ad0.png",
-    "static/media/hot-1.png": "/my-blog/static/media/hot-1.71a5682701592bc8eaf9.png",
-    "static/media/AmericanTypewriterBQ-Bold.otf": "/my-blog/static/media/AmericanTypewriterBQ-Bold.6ac32843c1d05c994df3.otf",
-    "static/media/hot-3.png": "/my-blog/static/media/hot-3.445fd32f4550de0b12c6.png",
-    "static/media/hot-4.png": "/my-blog/static/media/hot-4.af108db04a54d784da9b.png",
+    "static/media/bg-1.jpg": "/my-blog/static/media/bg-1.e0f8a4b3d999945a3e2b.jpg",
+    "static/media/head.jpg": "/my-blog/static/media/head.454650c41f1e1550749e.jpg",
     "index.html": "/my-blog/index.html",
-    "main.2922cf28.css.map": "/my-blog/static/css/main.2922cf28.css.map",
-    "main.50e6028d.js.map": "/my-blog/static/js/main.50e6028d.js.map"
+    "main.5aa12656.css.map": "/my-blog/static/css/main.5aa12656.css.map",
+    "main.58eee1b3.js.map": "/my-blog/static/js/main.58eee1b3.js.map"
   },
   "entrypoints": [
-    "static/css/main.2922cf28.css",
-    "static/js/main.50e6028d.js"
+    "static/css/main.5aa12656.css",
+    "static/js/main.58eee1b3.js"
   ]
 }
