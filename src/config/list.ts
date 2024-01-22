@@ -47,29 +47,37 @@ const list: listProps[] = [
         desc: "哎呀描述",
         date: "2022-06-21",
       },
+      {
+        name: "【记录】浏览器渲染原理",
+        path: base + "Browser/【记录】浏览器渲染原理.md",
+        desc: "浏览器在输入url后，发生了什么？？",
+        date: "2022-02-21",
+      },
     ],
   },
   {
-    name: 'download',
+    name: "download",
     list: [
       {
         name: "【记录】关于web、ios、android和taro小程序PDF预览和下载",
-        path: base + "download/【记录】关于web、ios、android和taro小程序PDF预览和下载.md",
+        path:
+          base +
+          "download/【记录】关于web、ios、android和taro小程序PDF预览和下载.md",
         desc: "哎呀描述",
-        date: "2023-12-26"
+        date: "2023-12-26",
       },
-    ]
+    ],
   },
   {
-    name: 'ajax',
+    name: "ajax",
     list: [
       {
         name: "常见的请求头和响应头",
         path: base + "ajax/常见的请求头和响应头.md",
         desc: "哎呀描述",
-        date: "2023-12-26"
+        date: "2023-12-26",
       },
-    ]
-  }
+    ],
+  },
 ];
 export default list;
