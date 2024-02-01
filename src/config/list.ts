@@ -16,7 +16,7 @@ const list: listProps[] = [
       {
         name: "【记录】微信小程序的一些特殊场景（Taro）",
         path: base + "Taro/【记录】微信小程序的一些特殊场景（Taro）.md",
-        desc: "哎呀描述",
+        desc: "小程序对于特殊场景的一些api",
         date: "2023-12-16",
       },
     ],
@@ -38,13 +38,13 @@ const list: listProps[] = [
       {
         name: "【记录】Cookie跨域",
         path: base + "Browser/【记录】Cookie跨域.md",
-        desc: "哎呀描述",
+        desc: "关于跨域接口携带cookie",
         date: "2021-7-21",
       },
       {
         name: "浏览器缓存",
         path: base + "Browser/浏览器缓存.md",
-        desc: "哎呀描述",
+        desc: "浏览器对于文件的获取方式",
         date: "2022-06-21",
       },
       {
@@ -53,6 +53,12 @@ const list: listProps[] = [
         desc: "浏览器在输入url后，发生了什么？？",
         date: "2022-02-21",
       },
+      {
+        name: "JS事件循环",
+        path: base + "Browser/JS事件循环.md",
+        desc: "事件循环又叫做消息循环，是浏览器渲染主线程的工作方式。在 Chrome 的源码中，它开启一个不会结束的 for 循环...",
+        date: "2021-06-21",
+      }
     ],
   },
   {
@@ -74,7 +80,7 @@ const list: listProps[] = [
       {
         name: "常见的请求头和响应头",
         path: base + "ajax/常见的请求头和响应头.md",
-        desc: "哎呀描述",
+        desc: "我们经常看到的请求中，都有什么？？分别是什么意思？",
         date: "2023-12-26",
       },
     ],

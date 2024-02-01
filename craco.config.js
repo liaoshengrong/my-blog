@@ -2,21 +2,6 @@ const CracoLessPlugin = require("craco-less");
 // const rawLoader = require("raw-loader");
 
 module.exports = {
-  modules: {
-    rules: [
-      {
-        test: /\.md$/,
-        use: [
-          {
-            loader: "raw-loader",
-            options: {
-              esModule: false,
-            },
-          },
-        ],
-      },
-    ],
-  },
   plugins: [
     {
       plugin: CracoLessPlugin,
