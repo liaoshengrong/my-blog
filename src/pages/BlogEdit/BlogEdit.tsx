@@ -5,7 +5,7 @@ import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
 import { saveAs } from "file-saver";
 import marked from "marked";
-import { mdParser } from "../components/MdRender";
+import { mdParser } from "../components/MdRender/MdRender";
 
 // Finish!
 

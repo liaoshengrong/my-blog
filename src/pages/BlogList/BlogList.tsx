@@ -3,7 +3,7 @@ import useMyNav from "../../router/nav";
 import list, { FilesProps } from "../../config/list";
 import Header from "../components/Header/Header";
 import "./BlogList.less";
-import MDRender from "../components/MdRender";
+import MDRender from "../components/MdRender/MdRender";
 function BlogList() {
   const { go } = useMyNav();
   const [dList, setDList] = useState([]);
@@ -53,7 +53,7 @@ function BlogList() {
 
   return (
     <div className="blogList" style={{ minWidth: cWidth * 0.5 }}>
-      <div className="topBg"></div>
+      {/* <div className="topBg"></div> */}
       <Header />
       <div className="create">
         <p onClick={() => go("/blog-edit")}>创建</p>
@@ -93,7 +93,9 @@ function BlogList() {
                   <div className="btnBox">
                     <p
                       className="read"
-                      onClick={() => go("/blog?path=" + item.path)}
+                      onClick={() =>
+                        go("/blog?path=" + item.path, { title: item?.name })
+                      }
                     >
                       阅读全文
                     </p>
@@ -106,7 +108,11 @@ function BlogList() {
             ))}
           </div>
           <div className="previewContainer">
-            {previewItem && <MDRender item={previewItem} />}
+            {previewItem ? (
+              <div className="preview">{<MDRender item={previewItem} />}</div>
+            ) : (
+              <div className="emojiIcon">😋🤑🤑👻👻😋</div>
+            )}
           </div>
         </div>
       </div>

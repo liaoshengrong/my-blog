@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MarkdownIt from "markdown-it";
 import hljs from "highlight.js";
+import "./MdRender.less";
 
 export const mdParser = new MarkdownIt({
   typographer: true,

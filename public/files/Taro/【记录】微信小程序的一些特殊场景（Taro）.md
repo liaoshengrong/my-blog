@@ -1,6 +1,4 @@
-﻿@[toc]
-
-# 登录
+﻿# 登录
 
 1.  使用 Taro.login()获取 code
 2.  将 code 传给后端获取 token/open_id
@@ -24,13 +22,13 @@ interface Option {
   nonceStr: string;
   /** 统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*** */
   package: string;
-  /** 订单信息，仅在需要校验的场景下需要传递，具体见[接口说明](https://developers.weixin.qq.com/miniprogram/dev/framework/ministore/minishopopencomponent2/API/order/requestOrderPayment) */
+  /** 订单信息，仅在需要校验的场景下需要传递 */
   orderInfo?;
   /** 外部 APP 用户 ID */
   extUserUin?: string;
   /** 签名算法 */
   signType?: keyof SignType;
-  /** 签名，具体签名方案参见 [小程序支付接口文档](https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=7_7&index=3) */
+  /** 签名 */
   paySign: string;
 }
 ```
