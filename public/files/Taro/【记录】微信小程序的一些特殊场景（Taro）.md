@@ -113,7 +113,6 @@ import { PageContainer } from "@tarojs/components";
 
 官方说明,页面栈不可超过 10 个，每次使用 navigateTo 都会增加一个。
 大于 10 个需要手动清空`Taro.reLauch`
-![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/6b0454db792446399d2d5e68cb6c64f6.png)
 
 1.  封装自定义跳转、back 函数
 2.  使用`getCurrentPages().map(v => v.route)`获取当前页面栈数量

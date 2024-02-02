@@ -56,9 +56,9 @@ const list: listProps[] = [
       {
         name: "JS事件循环",
         path: base + "Browser/JS事件循环.md",
-        desc: "事件循环又叫做消息循环，是浏览器渲染主线程的工作方式。在 Chrome 的源码中，它开启一个不会结束的 for 循环...",
+        desc: "浏览器是怎么处理如此繁琐复杂的任务？？",
         date: "2021-06-21",
-      }
+      },
     ],
   },
   {
@@ -69,7 +69,7 @@ const list: listProps[] = [
         path:
           base +
           "download/【记录】关于web、ios、android和taro小程序PDF预览和下载.md",
-        desc: "哎呀描述",
+        desc: "各有千秋，但原理一致",
         date: "2023-12-26",
       },
     ],

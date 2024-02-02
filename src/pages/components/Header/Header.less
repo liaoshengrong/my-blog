@@ -6,17 +6,16 @@
   width: 100vw;
   box-sizing: border-box;
   position: sticky;
-  top: 0;
+  top: -1px;
   left: 0;
+  color: #000;
 
   .title {
     padding-top: 0.5rem;
-    color: #000;
   }
   .headerNav {
     display: flex;
     p {
-      color: #000;
       margin: 0 15px;
       position: relative;
       text-align: center;
@@ -41,6 +40,7 @@
     }
     p:hover {
       color: #885555;
+      font-weight: bold;
       background-color: rgba(255, 255, 255, 1);
     }
 
@@ -50,4 +50,9 @@
       opacity: 0.5;
     }
   }
+}
+.isSticky {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: bold;
 }

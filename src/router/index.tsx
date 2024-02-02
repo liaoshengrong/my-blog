@@ -1,19 +1,18 @@
 import Blog from "../pages/Blog/Blog";
 import BlogList from "../pages/BlogList/BlogList";
-import Home from "../pages/Home/Home";
 import BlogEdit from "../pages/BlogEdit/BlogEdit";
 import React from "react";
-import Home2 from "../pages/Home2/Home2";
+import Home from "../pages/Home/Home";
 
 const config = [
   {
     path: "/",
-    element: <Home2 />,
+    element: <Home />,
   },
   {
     name: "home",
     path: "/home",
-    element: <Home2 />,
+    element: <Home />,
   },
   {
     name: "blog-list",

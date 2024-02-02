@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Header.less";
 import useMyNav from "../../../router/nav";
 const list = [
@@ -26,9 +26,27 @@ function Header() {
     if (!path) alert("暂未开放");
     go(path);
   };
-
+  useEffect(() => {
+    const sticky = document.getElementById("header");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log(entry.intersectionRatio);
+          entry.target.classList.toggle(
+            "isSticky",
+            entry.intersectionRatio < 1
+          );
+        });
+      },
+      { threshold: [1] }
+    );
+    observer.observe(sticky);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   return (
-    <div className="header">
+    <div className="header" id="header">
       <div className="title">BLOG 荣</div>
       <div className="headerNav">
         {list.map((item) => (
