@@ -32,7 +32,7 @@ function MDRender({ item }: IProps) {
   const [markdownContent, setMarkdownContent] = useState("");
   useEffect(() => {
     if (item) {
-      fetch(item.path)
+      fetch(item.path?.includes(".md") ? item.path : item.path + ".md")
         .then((response) => response.text())
         .then((data) => setMarkdownContent(data));
     }

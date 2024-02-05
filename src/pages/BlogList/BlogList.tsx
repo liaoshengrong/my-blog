@@ -93,9 +93,7 @@ function BlogList() {
                   <div className="btnBox">
                     <p
                       className="read"
-                      onClick={() =>
-                        go("/blog?path=" + item.path, { title: item?.name })
-                      }
+                      onClick={() => go("/blog?path=" + item.path)}
                     >
                       阅读全文
                     </p>

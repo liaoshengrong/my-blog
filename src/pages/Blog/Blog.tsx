@@ -2,23 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import MDRender from "../components/MdRender/MdRender";
 import "./Blog.less";
-import mdtx from "./a.md";
 import Header from "../components/Header/Header";
 function Blog() {
   const location = useLocation();
-  const path = location.search.slice(6);
-  const title = location.state.title;
-  useEffect(() => {
-    fetch(mdtx)
-      .then((res) => {
-        console.log(res);
-        // console.log(res.text());
-        return res.text();
-      })
-      .then((res) => {
-        console.log(res, "asdfasdf");
-      });
-  }, []);
+  const queryParams = new URLSearchParams(location.search);
+  const path = location.search.slice(6) + ".md";
+  const title = queryParams.get("path").split("/").pop();
+
   return (
     <div className="blogContainer">
       <Header />
