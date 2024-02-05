@@ -27,7 +27,7 @@ const list: listProps[] = [
       {
         name: "TS学习记录",
         path: base + "TS/TS学习记录.md",
-        desc: "哎呀描述",
+        desc: "Ts中常用的一些语法",
         date: "2020-10-21",
       },
     ],

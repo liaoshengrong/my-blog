@@ -30,7 +30,7 @@
 
 渲染主线程想出了一个绝妙的主意来处理这个问题：排队
 
-![image-20220809223027806](http://mdrs.yuanjin.tech/img/202208092230847.png)
+<img src="http://mdrs.yuanjin.tech/img/202208092230847.png" alt="你好" style="max-width: 100%">
 
 1. 在最开始的时候，渲染主线程会进入一个无限循环
 2. 每一次循环会检查消息队列中是否有任务存在。如果有，就取出第一个任务执行，执行完一个后进入下一次循环；如果没有，则进入休眠状态。
@@ -52,13 +52,13 @@
 
 如果让渲染主线程等待这些任务的时机达到，就会导致主线程长期处于「阻塞」的状态，从而导致浏览器「卡死」
 
-![image-20220810104344296](http://mdrs.yuanjin.tech/img/202208101043348.png)
+<img src="http://mdrs.yuanjin.tech/img/202208101043348.png" alt="你好" style="max-width: 100%">
 
 **渲染主线程承担着极其重要的工作，无论如何都不能阻塞！**
 
 因此，浏览器选择**异步**来解决这个问题
 
-![image-20220810104858857](http://mdrs.yuanjin.tech/img/202208101048899.png)
+<img src="http://mdrs.yuanjin.tech/img/202208101048899.png" alt="你好" style="max-width: 100%">
 
 使用异步的方式，**渲染主线程永不阻塞**
 
