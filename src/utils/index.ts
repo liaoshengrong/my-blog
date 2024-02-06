@@ -3,7 +3,7 @@ import list from "../config/list";
 export const preMDFetch = () => {
   list.forEach((item) => {
     item.list.forEach((v) => {
-      fetch(v.path);
+      fetch(v.path + ".md");
     });
   });
 };

@@ -9,6 +9,8 @@ interface listProps {
   list: FilesProps[];
 }
 const base = "/my-blog/files/";
+console.log(window.location, "location");
+
 const list: listProps[] = [
   {
     name: "Taro",
