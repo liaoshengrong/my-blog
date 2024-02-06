@@ -8,8 +8,8 @@ interface listProps {
   name: string;
   list: FilesProps[];
 }
-const base = "/my-blog/files/";
-console.log(window.location, "location");
+const base = window.location.pathname + "files/";
+console.log(window.location.pathname, "location");
 
 const list: listProps[] = [
   {

@@ -70,12 +70,12 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
-    "start": "craco start",
     "s": "craco start",
-    "build": "craco build",
+    "start": "craco start",
     "test": "craco test",
-    "predeploy": "npm run build",
-    "deploy": "npm run build && gh-pages -d build"
+    "build": "craco build",
+    "dep": "node set-url.js github && craco build && gh-pages -d build",
+    "cloud": "node set-url.js cloud && craco build"
   },
   "eslintConfig": {
     "extends": [
@@ -162,5 +162,6 @@
         }
       ]
     ]
-  }
+  },
+  "homepage": "https://puppet.pages.dev/"
 }
