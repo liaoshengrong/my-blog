@@ -2,7 +2,6 @@
   "name": "my-blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://liaoshengrong.github.io/my-blog/",
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@craco/craco": "^7.1.0",
