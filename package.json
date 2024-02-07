@@ -70,12 +70,13 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
-    "s": "craco start",
-    "start": "craco start",
+    "s": "yarn start",
+    "start": "node set-url.js cloud && craco start",
     "test": "craco test",
     "build": "craco build",
     "dep": "node set-url.js github && craco build && gh-pages -d build",
-    "cloud": "node set-url.js cloud && craco build"
+    "cloud": "node set-url.js cloud && craco build",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -98,7 +99,8 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-typescript": "^7.23.3",
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "husky": "^9.0.10"
   },
   "jest": {
     "roots": [
@@ -163,5 +165,5 @@
       ]
     ]
   },
-  "homepage": "https://puppet.pages.dev/"
+  "homepage": "https://liaoshengrong.github.io/my-blog/"
 }

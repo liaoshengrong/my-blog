@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MarkdownIt from "markdown-it";
 import hljs from "highlight.js";
 import "./MdRender.less";
+import { useLocation } from "react-router-dom";
 
 export const mdParser = new MarkdownIt({
   typographer: true,
@@ -30,11 +31,22 @@ interface IProps {
 }
 function MDRender({ item }: IProps) {
   const [markdownContent, setMarkdownContent] = useState("");
+  const location = useLocation();
+
   useEffect(() => {
     if (item) {
       fetch(item.path?.includes(".md") ? item.path : item.path + ".md")
         .then((response) => response.text())
-        .then((data) => setMarkdownContent(data));
+        .then((data) => {
+          // github
+          if (window.location.origin.includes("github")) {
+            const newData = data.replaceAll('src="', 'src="' + "/my-blog");
+            setMarkdownContent(newData);
+            return;
+          }
+
+          setMarkdownContent(data);
+        });
     }
   }, [item]);
   return (
