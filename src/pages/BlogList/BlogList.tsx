@@ -7,8 +7,11 @@ import MDRender from "../components/MdRender/MdRender";
 function BlogList() {
   const { go } = useMyNav();
   const [dList, setDList] = useState([]);
+
   const [previewItem, setPreviewItem] = useState<FilesProps>();
-  const cWidth = useMemo(() => window.screen.width, []);
+  const cWidth = useMemo(() => window.innerWidth, []);
+  const [isShowPreview, setIsShowPreview] = useState(window.innerWidth > 768);
+
   const selectTag = (type) => {
     const newList = [];
 
@@ -51,14 +54,24 @@ function BlogList() {
     setDList(defaultlist);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsShowPreview(window.innerWidth > 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="blogList" style={{ minWidth: cWidth * 0.5 }}>
       {/* <div className="topBg"></div> */}
-      <Header />
+      <Header isHide={!isShowPreview} />
       <div className="create">
         <p onClick={() => go("/blog-edit")}>创建</p>
       </div>
-      <div className="ctBox">
+      <div className={isShowPreview ? "ctBox" : "ctBox ctBox2"}>
         <div className="ctContainer">
           <div className="leftList">
             <div className="tagTitle">文章标签</div>
@@ -105,13 +118,15 @@ function BlogList() {
               </div>
             ))}
           </div>
-          <div className="previewContainer">
-            {previewItem ? (
-              <div className="preview">{<MDRender item={previewItem} />}</div>
-            ) : (
-              <div className="emojiIcon">😋🤑🤑👻👻😋</div>
-            )}
-          </div>
+          {isShowPreview && (
+            <div className="previewContainer">
+              {previewItem ? (
+                <div className="preview">{<MDRender item={previewItem} />}</div>
+              ) : (
+                <div className="emojiIcon">😋🤑🤑👻👻😋</div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

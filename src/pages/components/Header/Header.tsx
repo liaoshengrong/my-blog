@@ -20,7 +20,7 @@ const list = [
     path: "",
   },
 ];
-function Header() {
+function Header({ isHide }: { isHide?: boolean }) {
   const { go } = useMyNav();
   const goTo = (path) => {
     if (!path) alert("暂未开放");
@@ -46,7 +46,7 @@ function Header() {
     };
   }, []);
   return (
-    <div className="header" id="header">
+    <div className={isHide ? "mobileHeader" : "header"} id="header">
       <div className="title">BLOG 荣</div>
       <div className="headerNav">
         {list.map((item) => (

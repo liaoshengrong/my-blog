@@ -220,4 +220,31 @@
       }
     }
   }
+  .ctBox2 {
+    padding: 0;
+    .ctContainer {
+      // display: block;
+      display: flex;
+      flex-direction: column;
+      height: 92vh;
+      .leftList {
+        height: auto;
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        .tagTitle {
+          display: none;
+        }
+        div {
+          white-space: nowrap;
+        }
+      }
+      .listContainer {
+        box-sizing: border-box;
+        padding: 1rem;
+        width: 100%;
+        flex: 1;
+      }
+    }
+  }
 }

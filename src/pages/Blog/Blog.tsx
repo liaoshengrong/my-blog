@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import MDRender from "../components/MdRender/MdRender";
 import "./Blog.less";
@@ -8,10 +8,20 @@ function Blog() {
   const queryParams = new URLSearchParams(location.search);
   const path = location.search.slice(6) + ".md";
   const title = queryParams.get("path").split("/").pop();
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <div className="blogContainer">
-      <Header />
+    <div className={isMobile ? "mobileBlogContainer" : "blogContainer"}>
+      <Header isHide={isMobile} />
       <div className="blogTitle">{title}</div>
       <div className="ctxContainer">
         <MDRender item={{ path }} />
