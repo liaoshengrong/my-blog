@@ -19,18 +19,19 @@ function Home() {
     setItem(txt_list[random(0, max)]);
   };
 
-  const onChangeBg = useCallback((e) => {
-    e.stopPropagation();
-    let index = bgIndex + 1;
+  const onChangeBg = useCallback(
+    (e) => {
+      e.stopPropagation();
+      let index = bgIndex + 1;
 
-    if (index > 10) {
-      index = 1;
-    }
-    console.log(index, "index");
-
-    setBgIndex(index);
-    setBgUrl(require(`./images/bg-${index}.jpg`));
-  }, []);
+      if (index > 10) {
+        index = 1;
+      }
+      setBgIndex(index);
+      setBgUrl(require(`./images/bg-${index}.jpg`));
+    },
+    [bgIndex]
+  );
 
   const goto = (e, path) => {
     e.stopPropagation();
