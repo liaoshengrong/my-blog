@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import MarkdownIt from "markdown-it";
 import hljs from "highlight.js";
 import "./MdRender.less";
-import { useLocation } from "react-router-dom";
 
 export const mdParser = new MarkdownIt({
   typographer: true,
@@ -31,7 +30,6 @@ interface IProps {
 }
 function MDRender({ item }: IProps) {
   const [markdownContent, setMarkdownContent] = useState("");
-  const location = useLocation();
 
   useEffect(() => {
     if (item) {

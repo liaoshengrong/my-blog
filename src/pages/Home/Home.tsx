@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "./Home.less";
 import txt_list from "./Home.preset";
 import useMyNav from "../../router/nav";
@@ -18,7 +18,8 @@ function Home() {
     const max = txt_list.length - 1;
     setItem(txt_list[random(0, max)]);
   };
-  const onChangeBg = (e) => {
+
+  const onChangeBg = useCallback((e) => {
     e.stopPropagation();
     let index = bgIndex + 1;
 
@@ -29,14 +30,15 @@ function Home() {
 
     setBgIndex(index);
     setBgUrl(require(`./images/bg-${index}.jpg`));
-  };
+  }, []);
+
   const goto = (e, path) => {
     e.stopPropagation();
     go(path);
   };
   useEffect(() => {
     onChangeTxt();
-  }, []);
+  }, [onChangeTxt]);
   return (
     <div className="home_container2">
       <div
