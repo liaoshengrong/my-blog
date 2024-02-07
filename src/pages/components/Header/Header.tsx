@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import "./Header.less";
 import useMyNav from "../../../router/nav";
 const list = [

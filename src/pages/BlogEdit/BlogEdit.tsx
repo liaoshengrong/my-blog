@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import * as ReactDOM from "react-dom";
-import MarkdownIt from "markdown-it";
 import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
 import { saveAs } from "file-saver";
