@@ -37,7 +37,7 @@ function MDRender({ item }: IProps) {
         .then((response) => response.text())
         .then((data) => {
           // github
-          if (window.location.origin.includes("my-blog")) {
+          if (window.location.pathname.includes("my-blog")) {
             const newData = data.replaceAll('src="', 'src="' + "/my-blog");
             setMarkdownContent(newData);
             return;

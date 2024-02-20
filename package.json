@@ -74,7 +74,7 @@
     "start": "node set-url.js cloud && craco start",
     "test": "craco test",
     "build": "craco build",
-    "dep": "node set-url.js github && craco build && gh-pages -d build",
+    "dep": "node set-url.js github && craco build && gh-pages -d build && git push",
     "cloud": "node set-url.js cloud && craco build",
     "prepare": "husky install"
   },
@@ -165,5 +165,5 @@
       ]
     ]
   },
-  "homepage": "https://puppet.pages.dev/"
+  "homepage": "https://liaoshengrong.github.io/my-blog/"
 }
