@@ -51,7 +51,6 @@ function BlogList() {
       });
     });
     setPreviewItem(defaultlist[0]);
-    console.log(defaultlist, "defaultlist");
     const sortArr = [...defaultlist].sort((a, b) => {
       return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
