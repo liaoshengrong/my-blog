@@ -74,7 +74,7 @@
     "start": "node set-url.js cloud && craco start",
     "test": "craco test",
     "build": "craco build",
-    "dep": "node set-url.js github && craco build && gh-pages -d build && git push",
+    "dep": "node set-url.js github && craco build && gh-pages -d build",
     "cloud": "node set-url.js cloud && craco build",
     "prepare": "husky install"
   },
