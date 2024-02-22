@@ -35,3 +35,4 @@ export default async function cutFile(file) {
     }
   });
 }
+// 浏览器最大并发数 6 

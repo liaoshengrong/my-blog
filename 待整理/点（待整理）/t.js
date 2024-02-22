@@ -60,8 +60,9 @@
  * CORS
  * 简单请求：后端配置Access-Control-Allow-Origin
  * 预检请求：
- *   OPTIONS请求带有Access-Control-Request-Headers: content-type，
- *   后端配置：Access-Control-Allow-Headers: Content-Type   //允许的header
+ *   前端修改了请求头会触发 或 content-type：application/json
+ *   OPTIONS请求带有origin和Access-Control-Request-Headers和method，
+ *   后端识别该请求后可以返回max-age：45678
  * Cookie跨域
  *   前端配置withCredentials: true
  *   后端配置Access-Control-Allow-Credentials: true
