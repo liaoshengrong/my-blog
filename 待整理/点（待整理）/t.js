@@ -67,3 +67,20 @@
  *   后端配置Access-Control-Allow-Credentials: true
  *   或前端配置：Cookie.SameSite: none // 需要https
  */
+
+/**
+ * React生命周期
+ * 一、创建阶段
+ *   1、constructor 初始化状态属性
+ *   2、getDerivedStateFromProps(nextProps,preState) return的对象作为state值，return null表示不更新state
+ *   3、render 渲染
+ *   4、componentDidMount 挂载
+ * 二、更新阶段
+ *   1、getDerivedStateFromProps(nextProps,preState)
+ *   2、shouldComponentUpdate(nextProps, nextState) return true表示更新
+ *   3、render 渲染
+ *   4、getSnapshotBeforeUpdate 视图更新前 获取dom信息，做临时调整
+ *   5、componentDidUpdate 视图更新后执行
+ * 三、卸载阶段
+ *   1、componentWillUnmount 卸载
+ */
