@@ -84,3 +84,51 @@
  * 三、卸载阶段
  *   1、componentWillUnmount 卸载
  */
+
+/**
+ * React理解
+ * React是用于构建用户界面的JavaScript库，他主要的设计思想是：
+ * 组件化：开放-封闭原则
+ *   开放：组件之间可以通过props进行通信
+ *   封闭：组件可以独立渲染，内部的状态由自身维护
+ * 数据驱动视图： UI=f(data)
+ *  通过修改数据来驱动视图的更新
+ * 虚拟dom
+ *  在浏览器渲染的流水线中，操作真实dom是非常昂贵的，所以react提供了虚拟dom，通过对比虚拟dom和真实dom来增量更新视图
+ */
+
+/**
+ * http
+ * 1、http 和 https
+ *  http:无状态、明文传输 tcp 3个包
+ *  https: 有状态、加密传输 tcp 3个包 + ssl 9个包 需要证书
+ * 2、http1.1 和 http2.0
+ *  并发数量增加
+ *  h2.0对Header数据压缩，提高传输效率
+ */
+
+/**
+ * webpack 打包优化
+ * 1、多线程打包 thread-loader 官方推荐。使用：[thread-loader,less-loader]
+ * 2、多进程打包 HappyPack 但官方不再维护
+ * 3、缓存 cache-loader 对于开销大的loader进行cache
+ * 4、高速缓存 HardSourceWebpackPlugin 存在node_modules中，关键cacheDirectory  第一次正常打包，第二次提升90%
+ * 5、静态资源打包使用cdn：react react-router axios
+ * 6、考虑删除sourceMap，减少体积
+ */
+
+/**
+ * BFC 块级格式化上下文
+ * 独立的渲染区域，让空间里的子元素不受到外面布局的影响，同时也不影响外部元素
+ * 1、overflow不为visible
+ * 2、position为absolute，fixed
+ * 3、display为inline-block，flex、grid、table等
+ */
+
+/**
+ * 判断手机web和pc
+ *  1、navigator.userAgent
+ *  2、navigator.platform
+ *  3、window.screen
+ *  4、window.innerWidth
+ */
