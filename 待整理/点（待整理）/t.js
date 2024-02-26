@@ -8,7 +8,7 @@
  * 语言问题：
  *   兼容性：core-js做Polyfill
  *   语法增强：其他插件
- * 使用代码转化工具 babel 预设（一堆插件） @babel/preset-env
+ * 使用代码转化工具 babel 预设（一堆插件）@babel/core @babel/preset-env
  *
  * 2、模块化
  * 所有的功能都可以进行分解和聚合
@@ -141,4 +141,34 @@
  *  2、navigator.platform
  *  3、window.screen
  *  4、window.innerWidth
+ */
+
+/**
+ * React fiber
+ *  结构：链表（深度遍历优先的树）
+ *  解决了：react需要进行diff计算后才更新dom，会导致页面卡顿的问题
+ *  核心原理：
+ *    1、将 同步不可中断 变为 异步可中断
+ *    2、将任务区分优先级，低优先级的任务将在空闲时间调用（模拟requestIdCallback）
+ *  异步处理：
+ *    将大任务拆分成许多fiber任务，判断浏览器的每一帧是否有空闲时间，
+ *    如果没有就存储当前任务的指针（挂起任务），有则读取指针（恢复任务）
+ */
+
+/**
+ * react事件处理原理
+ * 
+ * react router
+ * redux原理、流程
+ * setState后发生了什么
+ * ahook
+ * React.lazy原理
+ * hooks解决了什么问题
+ * useEffect原理
+ *  手写myUseEffect
+ * react虚拟dom
+ *   为什么？
+ *   原理
+ *   流程
+ * diff和Vue的diff区别
  */
