@@ -67,6 +67,10 @@
  *   前端配置withCredentials: true
  *   后端配置Access-Control-Allow-Credentials: true
  *   或前端配置：Cookie.SameSite: none // 需要https
+ * localStorage 跨域
+ *   这个是跨域存储的意思
+ *   使用iframe或window.open
+ *   postmessage和onmessage进行操作
  */
 
 /**
@@ -96,6 +100,11 @@
  *  通过修改数据来驱动视图的更新
  * 虚拟dom
  *  在浏览器渲染的流水线中，操作真实dom是非常昂贵的，所以react提供了虚拟dom，通过对比虚拟dom和真实dom来增量更新视图
+ */
+
+/**
+ * Redux
+ * 面向 JS 应用程序的 可预测状态容器
  */
 
 /**
