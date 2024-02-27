@@ -74,40 +74,6 @@
  */
 
 /**
- * React生命周期
- * 一、创建阶段
- *   1、constructor 初始化状态属性
- *   2、getDerivedStateFromProps(nextProps,preState) return的对象作为state值，return null表示不更新state
- *   3、render 渲染
- *   4、componentDidMount 挂载
- * 二、更新阶段
- *   1、getDerivedStateFromProps(nextProps,preState)
- *   2、shouldComponentUpdate(nextProps, nextState) return true表示更新
- *   3、render 渲染
- *   4、getSnapshotBeforeUpdate 视图更新前 获取dom信息，做临时调整
- *   5、componentDidUpdate 视图更新后执行
- * 三、卸载阶段
- *   1、componentWillUnmount 卸载
- */
-
-/**
- * React理解
- * React是用于构建用户界面的JavaScript库，他主要的设计思想是：
- * 组件化：开放-封闭原则
- *   开放：组件之间可以通过props进行通信
- *   封闭：组件可以独立渲染，内部的状态由自身维护
- * 数据驱动视图： UI=f(data)
- *  通过修改数据来驱动视图的更新
- * 虚拟dom
- *  在浏览器渲染的流水线中，操作真实dom是非常昂贵的，所以react提供了虚拟dom，通过对比虚拟dom和真实dom来增量更新视图
- */
-
-/**
- * Redux
- * 面向 JS 应用程序的 可预测状态容器
- */
-
-/**
  * http
  * 1、http 和 https
  *  http:无状态、明文传输 tcp 3个包
@@ -144,6 +110,47 @@
  */
 
 /**
+ * React生命周期
+ * 一、创建阶段
+ *   1、constructor 初始化状态属性
+ *   2、getDerivedStateFromProps(nextProps,preState) return的对象作为state值，return null表示不更新state
+ *   3、render 渲染
+ *   4、componentDidMount 挂载
+ * 二、更新阶段
+ *   1、getDerivedStateFromProps(nextProps,preState)
+ *   2、shouldComponentUpdate(nextProps, nextState) return true表示更新
+ *   3、render 渲染
+ *   4、getSnapshotBeforeUpdate 视图更新前 获取dom信息，做临时调整
+ *   5、componentDidUpdate 视图更新后执行
+ * 三、卸载阶段
+ *   1、componentWillUnmount 卸载
+ */
+
+/**
+ * React理解
+ * React是用于构建用户界面的JavaScript库，他主要的设计思想是：
+ * 组件化：开放-封闭原则
+ *   开放：组件之间可以通过props进行通信
+ *   封闭：组件可以独立渲染，内部的状态由自身维护
+ * 数据驱动视图： UI=f(data)
+ *  通过修改数据来驱动视图的更新
+ * 虚拟dom
+ *  在浏览器渲染的流水线中，操作真实dom是非常昂贵的，所以react提供了虚拟dom，通过对比虚拟dom和真实dom来增量更新视图
+ */
+
+/**
+ * Redux
+ * 面向 JS 应用程序的 可预测状态容器
+ * 为了解决 组件通信 和 组件状态共享 的方案
+ * 工作流程
+ *  1、使用connect链接store后
+ *  2、组件通过dispatch一个action
+ *  3、store通过reducer更新state
+ *  4、因为store通过subscribe监听state变化
+ *  5、所以store可以通知对应组件进行更新
+ */
+
+/**
  * React fiber
  *  结构：链表（深度遍历优先的树）
  *  解决了：react需要进行diff计算后才更新dom，会导致页面卡顿的问题
@@ -152,14 +159,20 @@
  *    2、将任务区分优先级，低优先级的任务将在空闲时间调用（模拟requestIdCallback）
  *  异步处理：
  *    将大任务拆分成许多fiber任务，判断浏览器的每一帧是否有空闲时间，
- *    如果没有就存储当前任务的指针（挂起任务），有则读取指针（恢复任务）
+ *    如果没空就存储当前任务的指针（挂起任务），有空则读取指针（恢复任务）
  */
 
 /**
  * react事件处理原理
- * 
+ *  为抹平浏览器和平台之间的差异，react对事件进行了封装
+ *  委托：将事件委托给document
+ *  合成：将blur/change/input/keydown/keyup等事件合成为onChange
+ */
+
+/**
+ * react事件处理原理
+ *
  * react router
- * redux原理、流程
  * setState后发生了什么
  * ahook
  * React.lazy原理
