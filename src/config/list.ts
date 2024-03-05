@@ -87,5 +87,16 @@ const list: listProps[] = [
       },
     ],
   },
+  {
+    name: "engineer",
+    list: [
+      {
+        name: "多语言自动化同步和jest自动检查",
+        path: base + "engineer/多语言自动化同步和jest自动检查",
+        desc: "多语言和unit test的工程化问题，规范开发的工作流程",
+        date: "2024-2-26",
+      },
+    ],
+  },
 ];
 export default list;
