@@ -7,7 +7,7 @@ import MDRender from "../components/MdRender/MdRender";
 function BlogList() {
   const { go } = useMyNav();
   const [dList, setDList] = useState([]);
-
+  const [total, setTotal] = useState(0);
   const [previewItem, setPreviewItem] = useState<FilesProps>();
   const cWidth = useMemo(() => window.innerWidth, []);
   const [isShowPreview, setIsShowPreview] = useState(window.innerWidth > 768);
@@ -44,17 +44,18 @@ function BlogList() {
     setPreviewItem(item);
   };
   useEffect(() => {
-    const defaultlist = [];
+    const defaultList = [];
     list.forEach((item) => {
       item.list.forEach((v) => {
-        defaultlist.push(v);
+        defaultList.push(v);
       });
     });
-    setPreviewItem(defaultlist[0]);
-    const sortArr = [...defaultlist].sort((a, b) => {
+    setPreviewItem(defaultList[0]);
+    const sortArr = [...defaultList].sort((a, b) => {
       return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
     setDList(sortArr);
+    setTotal(sortArr.length);
   }, []);
 
   useEffect(() => {
@@ -80,7 +81,7 @@ function BlogList() {
             <div className="tagTitle">文章标签</div>
             <div className="tabAll" onClick={() => selectTag("all")}>
               <span>全部</span>
-              <span>{`(${list.length})`}</span>
+              <span>{`(${total})`}</span>
             </div>
             {list.map((item, index) => (
               <div

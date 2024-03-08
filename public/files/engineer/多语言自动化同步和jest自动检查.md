@@ -7,7 +7,8 @@
 - 本地每次 commit 时，都会触发 lokalise 更新
 - 本地只允许新增 key，其他操作都在 lokalise 端进行（更新/删除）
 - 如果你的 commit 报错了，而又比较紧急，可以使用 git commit -m "xxx" --no-verify
-- hotfix 分支会自动跳过 lokalise 自动化同步 5.如果你的 hotfix 内容需要更新 i18n 的内容，请手动在两端进行更新
+- hotfix 分支会自动跳过 lokalise 自动化同步
+- 如果你的 hotfix 内容需要更新 i18n 的内容，请手动在两端进行更新
 
 > 注意：在 commit 时，请确保你的电脑有网络
 
@@ -58,7 +59,7 @@ const keys = flattenKeys(enDiffRes, langArr, "", lang_obj);
 // create keys
 fetch(url, options).then((res) => {
   if (res.status === 200) {
-    syncCreateToLocal(keys, langArr, branch, lang_obj);
+    syncCreatedToLocal(keys, langArr, branch, lang_obj);
     return true;
   }
   return false;

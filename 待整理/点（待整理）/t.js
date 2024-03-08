@@ -136,6 +136,8 @@
  *  通过修改数据来驱动视图的更新
  * 虚拟dom
  *  在浏览器渲染的流水线中，操作真实dom是非常昂贵的，所以react提供了虚拟dom，通过对比虚拟dom和真实dom来增量更新视图
+ *
+ * jsx -> render function -> vDom(react Element) -> fiber(wip) -> dom
  */
 
 /**
@@ -160,6 +162,25 @@
  *  异步处理：
  *    将大任务拆分成许多fiber任务，判断浏览器的每一帧是否有空闲时间，
  *    如果没空就存储当前任务的指针（挂起任务），有空则读取指针（恢复任务）
+ *
+ *  因为vdom是react Element元素，只记录了子节点，所以不可中断
+ *  fiberNode记录了父节点、兄弟节点、子节点，打断后，也可以通过指针找到对应关系
+ */
+
+/**
+ * fiber的机制
+ *  创建fiberRoot
+ *  调用beginWork，构建workInProgress树
+ *  替换current树（视图渲染层）
+ * 更新也是先更新wip树，替换current树
+ *
+ * 双缓存模式
+ * current树、wip树
+ * 缓存这两个树，通过指针进行切换：以减少性能损耗
+ */
+
+/**
+ *
  */
 
 /**
@@ -167,6 +188,22 @@
  *  为抹平浏览器和平台之间的差异，react对事件进行了封装
  *  委托：将事件委托给document
  *  合成：将blur/change/input/keydown/keyup等事件合成为onChange
+ */
+
+/**
+ * router 定义路由和组件的映射关系
+ * 为什么要有router
+ *   早期一个URL对应一个页面，导致频繁刷新
+ *   ajax的出现，解决了局部刷新（SPA的关键），将所有页面合成为一个页面（SEO差）
+ * 原理
+ *   拦截用户刷新操作
+ *   根据不同的url，渲染不同的组件
+ * 模式
+ *  HashRouter
+ *    监听#后面的url，触发hashchange
+ *  BrowserRouter
+ *    html5中的history api
+ *    监听popState
  */
 
 /**
