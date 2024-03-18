@@ -45,7 +45,9 @@ if (regex.test(compareResultContent)) {
 
 3. 同步完没有新增 key 的文件后，开始走 create key 的逻辑
 
-代码文件位置：`lokalise/config.js` 4.根据 lokalise create key Api，我们先调整数据结构
+代码文件位置：`lokalise/config.js`
+
+4. 根据 lokalise create key Api，我们先调整数据结构
 
 ```js
 const keys = flattenKeys(enDiffRes, langArr, "", lang_obj);
@@ -89,9 +91,9 @@ fetch(url, options).then((res) => {
 
 原因：我们修改 `VM` 层时，容易忘记修改对应的 unit test，所以我将会把以下流程加入到 `commit-msg` 中。
 
-1、每次 commit 之前都需要检查 unit test 的运行情况
-2、如果运行失败，则不能进行 commit 操作
-3、如遇到紧急情况，可以在 commit 里增加(skip-commit)，则可以跳过 jest 检查，正常 commit
+1. 每次 commit 之前都需要检查 unit test 的运行情况
+2. 如果运行失败，则不能进行 commit 操作
+3. 如遇到紧急情况，可以在 commit 里增加(skip-commit)，则可以跳过 jest 检查，正常 commit
 
 ### 代码实现
 

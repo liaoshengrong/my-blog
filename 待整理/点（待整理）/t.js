@@ -1,51 +1,4 @@
 /**
- * 1、前端工程化
- * 前端的一系列管理工具，给开发者降本增效，例如：
- * 代码规范、模块划分、单元测试、性能优化等一系列工具
- * 把这些工具汇集在一起的过程叫做工程化
- *
- * 工程化2个问题
- * 语言问题：
- *   兼容性：core-js做Polyfill
- *   语法增强：其他插件
- * 使用代码转化工具 babel 预设（一堆插件）@babel/core @babel/preset-env
- *
- * 2、模块化
- * 所有的功能都可以进行分解和聚合
- * 作用: 解决js中文件引入冲突问题（聚合）
- * 例如：1.js、2.js、3.js有互相引入时，我们该怎么写script标签引入顺序
- * 标准：
- *   Commonjs： 民间标准 在运行时确定引用关系 require('./.')
- *   ES6： ES6标准 在编译时确定引用关系 import './.'
- */
-
-/**
- * SPA 首屏问题
- *
- * 具体情况具体分析
- * 1、接口请求
- * 2、资源请求
- * 3、图片资源
- * 4、渲染阻塞
- * 解决方案
- * 1、后端优化接口
- * 2、资源文件压缩
- * 3、图片压缩
- * 4、路由按需加载
- * 5、组件是否重复打包
- * 6、缓存资源
- * 7、使用SSR
- * 具体实现
- * 2、文件压缩 webpack 里配置gzip
- * 3、图片压缩 tinify工具 cdn
- * 4、路由按需加载 路由懒加载 React.lazy(() => import('./OtherComponent'))
- * 5、组件是否重复打包 webpack 里配置minChunks:3 引用超过3次的组件会放到Common里
- * 6、设置cacheControl max-age等缓存字段
- * 7、渲染阻塞可以考虑web Worker
- *
- */
-
-/**
  * 正向代理和反向代理
  * 正向：对服务器隐藏客户端
  * 反向：对客户端隐藏服务器
@@ -156,7 +109,9 @@
  * React fiber
  *  结构：链表（深度遍历优先的树）
  *  解决了：react需要进行diff计算后才更新dom，会导致页面卡顿的问题
+ *
  *  核心原理：
+ *   增量渲染和优先级调度
  *    1、将 同步不可中断 变为 异步可中断
  *    2、将任务区分优先级，低优先级的任务将在空闲时间调用（模拟requestIdCallback）
  *  异步处理：
@@ -172,15 +127,11 @@
  *  创建fiberRoot
  *  调用beginWork，构建workInProgress树
  *  替换current树（视图渲染层）
- * 更新也是先更新wip树，替换current树
+ * 更新也是先创建wip树，替换current树
  *
  * 双缓存模式
  * current树、wip树
  * 缓存这两个树，通过指针进行切换：以减少性能损耗
- */
-
-/**
- *
  */
 
 /**
@@ -207,18 +158,79 @@
  */
 
 /**
- * react事件处理原理
- *
- * react router
  * setState后发生了什么
+ *  1. 将新的state合并到当前组件的状态中
+ *  2. 创建新的fiber节点（wip tree）也叫vdom，节点包含更新后的状态、属性和类型
+ *  3. diff计算：wip tree和current tree开始走所谓的协调（reconciliation）过程, 通过节点的类型、key等信息来确定是否需要更新
+ *  4. 将比较结果放到更新的任务队列中，使用浏览器插帧渲染的方式，做异步处理
+ *  5. 更新完成后，React会将wip树设为current树，方便下次diff
+ *
  * ahook
- * React.lazy原理
+ *  在原本hooks的基础上封装了更方便我们使用的hooks
+ *
+ * React.lazy
+ *  代码分割，用于实现按需加载的组件，也即路由懒加载
+ *
  * hooks解决了什么问题
- * useEffect原理
- *  手写myUseEffect
+ *  - 函数组件 状态
+ *  - 类组件太繁琐
+ *  - 代码简化和复用
+ *  - 代码性能优化
+ *  - 更好的ts支持
+ *
  * react虚拟dom
  *   为什么？
+ *    React本身机制导致不得不使用vdom，每次更新都会重新render，使用虚拟dom进行批量更新，避免频繁的操作dom
  *   原理
+ *    通过react.createElement创建vdom，再形成对应的fiber树，wip树和current树，每次更新会创建新的vdom和wip树对比后，进行批量更新
  *   流程
- * diff和Vue的diff区别
+ *    div -> react.createElement() == wip tree -> current tree -> view
+ *    updated: div -> createElement == diff current -> current tree
+ */
+
+/**
+ * 1、前端工程化
+ * 前端的一系列管理工具，给开发者降本增效，例如：
+ * 代码规范、模块划分、单元测试、性能优化等一系列工具
+ * 把这些工具汇集在一起的过程叫做工程化
+ *
+ * 工程化2个问题
+ * 语言问题：
+ *   兼容性：core-js做Polyfill
+ *   语法增强：其他插件
+ * 使用代码转化工具 babel 预设（一堆插件）@babel/core @babel/preset-env
+ *
+ * 2、模块化
+ * 所有的功能都可以进行分解和聚合
+ * 作用: 解决js中文件引入冲突问题（聚合）
+ * 例如：1.js、2.js、3.js有互相引入时，我们该怎么写script标签引入顺序
+ * 标准：
+ *   Commonjs： 民间标准 在运行时确定引用关系 require('./.')
+ *   ES6： ES6标准 在编译时确定引用关系 import './.'
+ */
+
+/**
+ * SPA 首屏问题
+ *
+ * 具体情况具体分析
+ * 1、接口请求
+ * 2、资源请求
+ * 3、图片资源
+ * 4、渲染阻塞
+ * 解决方案
+ * 1、后端优化接口
+ * 2、资源文件压缩
+ * 3、图片压缩
+ * 4、路由按需加载
+ * 5、组件是否重复打包
+ * 6、缓存资源
+ * 7、使用SSR
+ * 具体实现
+ * 2、文件压缩 webpack 里配置gzip
+ * 3、图片压缩 tinify工具 cdn
+ * 4、路由按需加载 路由懒加载 React.lazy(() => import('./OtherComponent'))
+ * 5、组件是否重复打包 webpack 里配置minChunks:3 引用超过3次的组件会放到Common里
+ * 6、设置cacheControl max-age等缓存字段
+ * 7、渲染阻塞可以考虑web Worker
+ *
  */
