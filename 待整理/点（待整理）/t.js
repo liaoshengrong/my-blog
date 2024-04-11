@@ -35,7 +35,13 @@
  *  并发数量增加
  *  h2.0对Header数据压缩，提高传输效率
  */
-
+/**
+ * new
+ * 1、创建新对象obj
+ * 2、obj.__proto__ = Person.Prototype
+ * 3、Person.call(obj)
+ * 4、返回一个新对象
+ */
 /**
  * webpack 打包优化
  * 1、多线程打包 thread-loader 官方推荐。使用：[thread-loader,less-loader]

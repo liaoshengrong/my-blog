@@ -98,5 +98,16 @@ const list: listProps[] = [
       },
     ],
   },
+  {
+    name: "general",
+    list: [
+      {
+        name: "前端知识散点",
+        path: base + "general/前端知识散点",
+        desc: "关于前端需要知道的一些知识点",
+        date: "2024-3-21",
+      },
+    ],
+  },
 ];
 export default list;
