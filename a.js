@@ -24,7 +24,7 @@ const palindrome = (s) => {
 // 最长的不重复字符长度
 
 const noRepeat = (s) => {
-  let left = 0;
+  let left = 0; // 准备一个指针
   let length = 0;
   const map = new Map()
   for (let i = 0; i < s.length; i++) {
